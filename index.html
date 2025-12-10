@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Policy Manual - ARS International</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #027A76 0%, #E86C4F 50%, #F4A24C 100%);
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #065F46 100%);
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -29,13 +29,12 @@
         .shape {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
             animation: float 15s infinite ease-in-out;
         }
-        .shape:nth-child(1) { width: 300px; height: 300px; top: -100px; left: -100px; background: rgba(191,221,206,0.2); animation-delay: 0s; }
-        .shape:nth-child(2) { width: 200px; height: 200px; top: 50%; right: -50px; background: rgba(244,162,76,0.2); animation-delay: 2s; }
-        .shape:nth-child(3) { width: 150px; height: 150px; bottom: -50px; left: 30%; background: rgba(242,229,211,0.2); animation-delay: 4s; }
-        .shape:nth-child(4) { width: 250px; height: 250px; top: 20%; left: 60%; background: rgba(219,174,141,0.15); animation-delay: 1s; }
+        .shape:nth-child(1) { width: 300px; height: 300px; top: -100px; left: -100px; background: rgba(212,175,55,0.15); animation-delay: 0s; }
+        .shape:nth-child(2) { width: 200px; height: 200px; top: 50%; right: -50px; background: rgba(255,255,255,0.08); animation-delay: 2s; }
+        .shape:nth-child(3) { width: 150px; height: 150px; bottom: -50px; left: 30%; background: rgba(212,175,55,0.1); animation-delay: 4s; }
+        .shape:nth-child(4) { width: 250px; height: 250px; top: 20%; left: 60%; background: rgba(255,255,255,0.05); animation-delay: 1s; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -61,7 +60,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         .logo span {
-            color: #F4A24C;
+            color: #D4AF37;
         }
 
         /* Language Dropdown */
@@ -73,9 +72,9 @@
             align-items: center;
             gap: 8px;
             padding: 12px 20px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(212,175,55,0.2);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(212,175,55,0.4);
             border-radius: 50px;
             color: #fff;
             font-size: 14px;
@@ -84,7 +83,7 @@
             transition: all 0.3s ease;
         }
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(212,175,55,0.3);
             transform: scale(1.05);
         }
         .lang-btn svg {
@@ -100,7 +99,7 @@
             top: calc(100% + 10px);
             right: 0;
             min-width: 200px;
-            background: #F2E5D3;
+            background: #fff;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             opacity: 0;
@@ -119,18 +118,18 @@
             align-items: center;
             gap: 12px;
             padding: 14px 20px;
-            color: #027A76;
+            color: #1E3A8A;
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
             transition: all 0.2s ease;
         }
         .lang-menu a:hover {
-            background: linear-gradient(90deg, #E86C4F, #F4A24C);
+            background: linear-gradient(90deg, #1E3A8A, #065F46);
             color: #fff;
         }
         .lang-menu a .native {
-            color: #DBAE8D;
+            color: #D4AF37;
             font-size: 12px;
         }
         .lang-menu a:hover .native {
@@ -154,14 +153,14 @@
         .badge {
             display: inline-block;
             padding: 10px 24px;
-            background: rgba(191,221,206,0.3);
+            background: rgba(212,175,55,0.2);
             backdrop-filter: blur(10px);
             border-radius: 50px;
-            color: #fff;
+            color: #D4AF37;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 30px;
-            border: 1px solid rgba(191,221,206,0.5);
+            border: 1px solid rgba(212,175,55,0.4);
         }
         .hero h1 {
             font-size: clamp(40px, 8vw, 72px);
@@ -172,10 +171,7 @@
             text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
         }
         .hero h1 span {
-            background: linear-gradient(90deg, #F4A24C, #DBAE8D);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #D4AF37;
         }
         .hero p {
             font-size: 18px;
@@ -204,14 +200,14 @@
             transition: all 0.3s ease;
         }
         .btn-primary {
-            background: #F2E5D3;
-            color: #027A76;
+            background: #D4AF37;
+            color: #1E3A8A;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-            background: #fff;
+            box-shadow: 0 15px 50px rgba(212,175,55,0.4);
+            background: #E5C158;
         }
         .btn-secondary {
             background: transparent;
@@ -231,24 +227,25 @@
             margin-top: 80px;
         }
         .feature {
-            background: rgba(242,229,211,0.15);
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid rgba(242,229,211,0.3);
+            border: 1px solid rgba(212,175,55,0.2);
             text-align: center;
             transition: all 0.3s ease;
         }
         .feature:hover {
             transform: translateY(-5px);
-            background: rgba(242,229,211,0.25);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(212,175,55,0.4);
         }
         .feature-icon {
             font-size: 40px;
             margin-bottom: 16px;
         }
         .feature h3 {
-            color: #fff;
+            color: #D4AF37;
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 8px;
