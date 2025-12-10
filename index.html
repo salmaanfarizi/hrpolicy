@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Policy Manual - ARS International</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #2D2D2D 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+        }
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #8B7355, #A89078);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .lang-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        .lang-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .lang-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D2D2D;
+            margin-bottom: 6px;
+        }
+        .lang-native {
+            font-size: 18px;
+            color: #8B7355;
+            margin-bottom: 12px;
+        }
+        .lang-desc {
+            font-size: 13px;
+            color: #6B6B6B;
+        }
+        .lang-card .arrow {
+            float: right;
+            color: #8B7355;
+            font-size: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HR Policy Manual</h1>
+            <p>ARS International Co. S.P.C.</p>
+            <div class="divider"></div>
+            <p style="color: rgba(255,255,255,0.5); font-size: 14px;">Select your preferred language</p>
+        </div>
+        
+        <div class="languages">
+            <a href="english.html" class="lang-card">
+                <span class="arrow">→</span>
+                <div class="lang-name">English</div>
+                <div class="lang-native">English</div>
+                <div class="lang-desc">Complete 79-page HR Policy Manual</div>
+            </a>
+            
+            <a href="arabic.html" class="lang-card">
+                <span class="arrow">←</span>
+                <div class="lang-name">Arabic</div>
+                <div class="lang-native">العربية</div>
+                <div class="lang-desc">دليل سياسات الموارد البشرية</div>
+            </a>
+            
+            <a href="hindi.html" class="lang-card">
+                <span class="arrow">→</span>
+                <div class="lang-name">Hindi</div>
+                <div class="lang-native">हिंदी</div>
+                <div class="lang-desc">एचआर नीति पुस्तिका</div>
+            </a>
+            
+            <a href="malayalam.html" class="lang-card">
+                <span class="arrow">→</span>
+                <div class="lang-name">Malayalam</div>
+                <div class="lang-native">മലയാളം</div>
+                <div class="lang-desc">എച്ച്ആർ പോളിസി മാന്വൽ</div>
+            </a>
+            
+            <a href="bengali.html" class="lang-card">
+                <span class="arrow">→</span>
+                <div class="lang-name">Bengali</div>
+                <div class="lang-native">বাংলা</div>
+                <div class="lang-desc">এইচআর পলিসি ম্যানুয়াল</div>
+            </a>
+            
+            <a href="nepali.html" class="lang-card">
+                <span class="arrow">→</span>
+                <div class="lang-name">Nepali</div>
+                <div class="lang-native">नेपाली</div>
+                <div class="lang-desc">एचआर नीति पुस्तिका</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 ARS International Co. S.P.C. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
