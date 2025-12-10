@@ -1,0 +1,2450 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Policy Manual - ARS International Co.SPC.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0ea5e9;
+            --accent-dark: #0284c7;
+            --accent-light: #38bdf8;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --surface: #ffffff;
+            --surface-dim: #f8fafc;
+            --surface-dark: #f1f5f9;
+            --text: #334155;
+            --text-light: #64748b;
+            --text-dark: #0f172a;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--surface-dim);
+            font-size: 16px;
+        }
+
+        /* RTL Support */
+        html[dir="rtl"] body {
+            font-family: 'Noto Sans Arabic', 'Source Serif 4', Georgia, serif;
+        }
+
+        html[dir="rtl"] .nav-toggle {
+            left: auto;
+            right: 20px;
+        }
+
+        html[dir="rtl"] .sidebar {
+            left: auto;
+            right: 0;
+            transform: translateX(100%);
+            border-right: none;
+            border-left: 1px solid var(--border);
+        }
+
+        html[dir="rtl"] .sidebar.active {
+            transform: translateX(0);
+        }
+
+        html[dir="rtl"] .download-btn {
+            right: auto;
+            left: 24px;
+        }
+
+        html[dir="rtl"] .back-to-top {
+            right: auto;
+            left: 24px;
+        }
+
+        html[dir="rtl"] .nav-link.sub {
+            padding-left: 12px;
+            padding-right: 24px;
+        }
+
+        html[dir="rtl"] .toc-section:hover {
+            transform: translateX(-4px);
+        }
+
+        html[dir="rtl"] .toc-section-title::before {
+            margin-left: 12px;
+            margin-right: 0;
+        }
+
+        html[dir="rtl"] .info-box,
+        html[dir="rtl"] .warning-box,
+        html[dir="rtl"] .important-box {
+            border-left: none;
+            border-right: 4px solid;
+            border-radius: var(--radius) 0 0 var(--radius);
+        }
+
+        html[dir="rtl"] .info-box {
+            border-right-color: var(--accent);
+        }
+
+        html[dir="rtl"] .warning-box {
+            border-right-color: var(--warning);
+        }
+
+        html[dir="rtl"] .important-box {
+            border-right-color: var(--danger);
+        }
+
+        html[dir="rtl"] .process-steps li {
+            padding-left: 0;
+            padding-right: 60px;
+        }
+
+        html[dir="rtl"] .process-steps li::before {
+            left: auto;
+            right: 0;
+        }
+
+        html[dir="rtl"] ul, html[dir="rtl"] ol {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+
+        html[dir="rtl"] li {
+            padding-left: 0;
+            padding-right: 4px;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            z-index: 1002;
+            display: flex;
+            gap: 8px;
+            background: var(--surface);
+            padding: 8px 12px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        html[dir="rtl"] .language-selector {
+            right: auto;
+            left: 80px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text);
+        }
+
+        .lang-btn:hover {
+            background: var(--surface-dark);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+        }
+
+        .lang-btn-ar {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Download Button - Fixed */
+        .download-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg), 0 0 0 0 rgba(14, 165, 233, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: pulse-shadow 2s infinite;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .download-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @keyframes pulse-shadow {
+            0%, 100% { box-shadow: var(--shadow-lg), 0 0 0 0 rgba(14, 165, 233, 0.4); }
+            50% { box-shadow: var(--shadow-lg), 0 0 0 8px rgba(14, 165, 233, 0); }
+        }
+
+        /* Navigation Sidebar */
+        .nav-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            width: 48px;
+            height: 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 320px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            padding: 80px 24px 40px;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+
+        html[dir="rtl"] .nav-section-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 10px 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        html[dir="rtl"] .nav-link {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .nav-link:hover {
+            background: var(--surface-dark);
+            color: var(--accent);
+        }
+
+        .nav-link.sub {
+            padding-left: 24px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Cover Section */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cover-logo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 40px;
+            background: var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cover-logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        html[dir="rtl"] .cover-badge {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        .cover-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(36px, 8vw, 56px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        html[dir="rtl"] .cover-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        .cover-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+
+        .cover-company {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+
+        html[dir="rtl"] .cover-company {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .cover-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cover-meta-item {
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            color: rgba(255,255,255,0.8);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+        }
+
+        html[dir="rtl"] .cover-meta-item {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .cover-meta-item strong {
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Document Content */
+        .document {
+            background: var(--surface);
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            padding: 60px 24px;
+            background: var(--surface);
+        }
+
+        .toc-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .toc-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        html[dir="rtl"] .toc-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .toc-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .toc-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .toc-section {
+            background: var(--surface-dim);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .toc-section:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .toc-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        html[dir="rtl"] .toc-section-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .toc-section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--accent), var(--gold));
+            border-radius: 2px;
+        }
+
+        .toc-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .toc-link {
+            font-size: 13px;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 6px 12px;
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .toc-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--surface-dark);
+            position: relative;
+        }
+
+        .section-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        html[dir="rtl"] .section-number {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        html[dir="rtl"] .section-title {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 48px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--surface-dark);
+        }
+
+        html[dir="rtl"] h2 {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 28px 0 12px;
+        }
+
+        html[dir="rtl"] h3 {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 20px 0 10px;
+        }
+
+        html[dir="rtl"] h4 {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 400px;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        html[dir="rtl"] th {
+            text-align: right;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: var(--surface-dim);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .info-box strong {
+            color: var(--accent-dark);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .warning-box strong {
+            color: #b45309;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border-left: 4px solid var(--danger);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .important-box strong {
+            color: #b91c1c;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            counter-reset: step;
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        html[dir="rtl"] .process-steps {
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        .process-steps li {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 24px;
+            min-height: 45px;
+        }
+
+        .process-steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            background: var(--surface-dim);
+            padding: 40px 24px;
+            border-radius: var(--radius);
+            margin-top: 40px;
+        }
+
+        .signature-box {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            padding: 32px;
+            border-radius: var(--radius);
+        }
+
+        .signature-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .signature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .signature-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .signature-field label {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        html[dir="rtl"] .signature-field label {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            letter-spacing: 0;
+        }
+
+        .signature-line {
+            border-bottom: 2px solid var(--border);
+            height: 36px;
+        }
+
+        /* Footer */
+        .document-footer {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--surface-dim);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 16px;
+            font-style: italic;
+        }
+
+        .footer-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        html[dir="rtl"] .footer-meta {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .footer-meta span {
+            padding: 6px 12px;
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Language content visibility */
+        .lang-en, .lang-ar {
+            display: none;
+        }
+
+        html[lang="en"] .lang-en {
+            display: block;
+        }
+
+        html[lang="ar"] .lang-ar {
+            display: block;
+        }
+
+        html[lang="en"] span.lang-en,
+        html[lang="ar"] span.lang-ar {
+            display: inline;
+        }
+
+        html[lang="en"] li.lang-en,
+        html[lang="ar"] li.lang-ar {
+            display: list-item;
+        }
+
+        html[lang="en"] tr.lang-en,
+        html[lang="ar"] tr.lang-ar {
+            display: table-row;
+        }
+
+        html[lang="en"] div.lang-en,
+        html[lang="ar"] div.lang-ar {
+            display: block;
+        }
+
+        html[lang="en"] a.lang-en,
+        html[lang="ar"] a.lang-ar {
+            display: block;
+        }
+
+        /* Print Styles */
+        @media print {
+            .download-btn,
+            .nav-toggle,
+            .sidebar,
+            .sidebar-overlay,
+            .back-to-top,
+            .scroll-indicator,
+            .language-selector {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                font-size: 11pt;
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 60px 40px;
+                page-break-after: always;
+            }
+
+            .cover-logo {
+                animation: none;
+            }
+
+            .section {
+                page-break-before: always;
+            }
+
+            .section:first-of-type {
+                page-break-before: avoid;
+            }
+
+            .toc {
+                page-break-after: always;
+            }
+
+            .info-box,
+            .warning-box,
+            .important-box,
+            .signature-section {
+                page-break-inside: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                padding: 6px 8px;
+            }
+
+            html[dir="rtl"] .language-selector {
+                right: auto;
+                left: 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .cover {
+                padding: 60px 20px;
+            }
+
+            .cover-logo {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 32px;
+            }
+
+            .cover-logo-text {
+                font-size: 28px;
+            }
+
+            .cover-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cover-meta-item {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .toc {
+                padding: 40px 20px;
+            }
+
+            .toc-title {
+                font-size: 26px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .process-steps li {
+                padding-left: 50px;
+            }
+
+            html[dir="rtl"] .process-steps li {
+                padding-left: 0;
+                padding-right: 50px;
+            }
+
+            .process-steps li::before {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .download-btn {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+
+            html[dir="rtl"] .download-btn {
+                right: auto;
+                left: 16px;
+            }
+
+            .download-btn span {
+                display: none;
+            }
+
+            .download-btn svg {
+                margin: 0;
+            }
+
+            .back-to-top {
+                bottom: 80px;
+                right: 16px;
+            }
+
+            html[dir="rtl"] .back-to-top {
+                right: auto;
+                left: 16px;
+            }
+
+            .nav-toggle {
+                top: 16px;
+                left: 16px;
+                width: 44px;
+                height: 44px;
+            }
+
+            html[dir="rtl"] .nav-toggle {
+                left: auto;
+                right: 16px;
+            }
+
+            .sidebar {
+                width: 280px;
+                padding: 70px 20px 30px;
+            }
+
+            .signature-box {
+                padding: 20px;
+            }
+
+            .signature-row {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-title {
+                font-size: 28px;
+            }
+
+            .cover-subtitle {
+                font-size: 16px;
+            }
+
+            .cover-company {
+                font-size: 20px;
+            }
+
+            .toc-section {
+                padding: 16px;
+            }
+
+            .toc-section-title {
+                font-size: 14px;
+            }
+
+            .toc-link {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+
+            .info-box,
+            .warning-box,
+            .important-box {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn lang-btn-ar" onclick="setLanguage('ar')">العربية</button>
+    </div>
+
+    <!-- Navigation Toggle -->
+    <button class="nav-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav class="sidebar">
+        <!-- English Navigation -->
+        <div class="lang-en">
+            <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <a href="#cover" class="nav-link" onclick="closeSidebar()">Cover</a>
+                <a href="#toc" class="nav-link" onclick="closeSidebar()">Table of Contents</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Section 1</div>
+                <a href="#section1" class="nav-link" onclick="closeSidebar()">Employing Staff</a>
+                <a href="#recruitment" class="nav-link sub" onclick="closeSidebar()">1.1 Recruitment</a>
+                <a href="#induction" class="nav-link sub" onclick="closeSidebar()">1.2 Induction</a>
+                <a href="#employment-standards" class="nav-link sub" onclick="closeSidebar()">1.3 Employment Standards</a>
+                <a href="#business-conduct" class="nav-link sub" onclick="closeSidebar()">1.4 Business Conduct</a>
+                <a href="#internet-email" class="nav-link sub" onclick="closeSidebar()">1.5 Internet & Email</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Section 2</div>
+                <a href="#section2" class="nav-link" onclick="closeSidebar()">Employee Performance</a>
+                <a href="#appraisal" class="nav-link sub" onclick="closeSidebar()">2.1 Performance Appraisal</a>
+                <a href="#absence" class="nav-link sub" onclick="closeSidebar()">2.2 Absence Management</a>
+                <a href="#disciplinary" class="nav-link sub" onclick="closeSidebar()">2.3 Disciplinary</a>
+                <a href="#capability" class="nav-link sub" onclick="closeSidebar()">2.4 Capability</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Section 3</div>
+                <a href="#section3" class="nav-link" onclick="closeSidebar()">Employee Concerns</a>
+                <a href="#grievance" class="nav-link sub" onclick="closeSidebar()">3.1 Grievance</a>
+                <a href="#harassment" class="nav-link sub" onclick="closeSidebar()">3.2 Bullying & Harassment</a>
+                <a href="#whistleblowing" class="nav-link sub" onclick="closeSidebar()">3.3 Whistleblowing</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Section 4</div>
+                <a href="#section4" class="nav-link" onclick="closeSidebar()">Supporting Staff</a>
+                <a href="#equality" class="nav-link sub" onclick="closeSidebar()">4.1 Equality & Diversity</a>
+                <a href="#drug-alcohol" class="nav-link sub" onclick="closeSidebar()">4.2 Drug & Alcohol</a>
+                <a href="#health-safety" class="nav-link sub" onclick="closeSidebar()">4.3 Health & Safety</a>
+            </div>
+        </div>
+        <!-- Arabic Navigation -->
+        <div class="lang-ar">
+            <div class="nav-section">
+                <div class="nav-section-title">البداية</div>
+                <a href="#cover" class="nav-link" onclick="closeSidebar()">الغلاف</a>
+                <a href="#toc" class="nav-link" onclick="closeSidebar()">جدول المحتويات</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">القسم الأول</div>
+                <a href="#section1" class="nav-link" onclick="closeSidebar()">توظيف الموظفين</a>
+                <a href="#recruitment" class="nav-link sub" onclick="closeSidebar()">1.1 التوظيف</a>
+                <a href="#induction" class="nav-link sub" onclick="closeSidebar()">1.2 التعريف بالعمل</a>
+                <a href="#employment-standards" class="nav-link sub" onclick="closeSidebar()">1.3 معايير التوظيف</a>
+                <a href="#business-conduct" class="nav-link sub" onclick="closeSidebar()">1.4 السلوك المهني</a>
+                <a href="#internet-email" class="nav-link sub" onclick="closeSidebar()">1.5 الإنترنت والبريد الإلكتروني</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">القسم الثاني</div>
+                <a href="#section2" class="nav-link" onclick="closeSidebar()">أداء الموظفين</a>
+                <a href="#appraisal" class="nav-link sub" onclick="closeSidebar()">2.1 تقييم الأداء</a>
+                <a href="#absence" class="nav-link sub" onclick="closeSidebar()">2.2 إدارة الغياب</a>
+                <a href="#disciplinary" class="nav-link sub" onclick="closeSidebar()">2.3 الإجراءات التأديبية</a>
+                <a href="#capability" class="nav-link sub" onclick="closeSidebar()">2.4 القدرات</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">القسم الثالث</div>
+                <a href="#section3" class="nav-link" onclick="closeSidebar()">مخاوف الموظفين</a>
+                <a href="#grievance" class="nav-link sub" onclick="closeSidebar()">3.1 التظلمات</a>
+                <a href="#harassment" class="nav-link sub" onclick="closeSidebar()">3.2 التنمر والتحرش</a>
+                <a href="#whistleblowing" class="nav-link sub" onclick="closeSidebar()">3.3 الإبلاغ عن المخالفات</a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">القسم الرابع</div>
+                <a href="#section4" class="nav-link" onclick="closeSidebar()">دعم الموظفين</a>
+                <a href="#equality" class="nav-link sub" onclick="closeSidebar()">4.1 المساواة والتنوع</a>
+                <a href="#drug-alcohol" class="nav-link sub" onclick="closeSidebar()">4.2 المخدرات والكحول</a>
+                <a href="#health-safety" class="nav-link sub" onclick="closeSidebar()">4.3 الصحة والسلامة</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Download PDF Button -->
+    <button class="download-btn" onclick="downloadPDF()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        <span class="lang-en">Download PDF</span>
+        <span class="lang-ar">تحميل PDF</span>
+    </button>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Cover Page -->
+    <div class="cover" id="cover">
+        <div class="cover-content">
+            <div class="cover-logo">
+                <span class="cover-logo-text">ARS</span>
+            </div>
+            <div class="cover-badge">
+                <span class="lang-en">Official Document</span>
+                <span class="lang-ar">وثيقة رسمية</span>
+            </div>
+            <h1 class="cover-title">
+                <span class="lang-en">HR Policy Manual</span>
+                <span class="lang-ar">دليل سياسات الموارد البشرية</span>
+            </h1>
+            <p class="cover-subtitle">
+                <span class="lang-en">Human Resources Policies & Procedures</span>
+                <span class="lang-ar">سياسات وإجراءات الموارد البشرية</span>
+            </p>
+            <p class="cover-company">ARS International Co.SPC.</p>
+            <div class="cover-meta">
+                <div class="cover-meta-item">
+                    <span class="lang-en"><strong>Effective:</strong> December 2024</span>
+                    <span class="lang-ar"><strong>تاريخ السريان:</strong> ديسمبر 2024</span>
+                </div>
+                <div class="cover-meta-item">
+                    <span class="lang-en"><strong>Version:</strong> 1.0</span>
+                    <span class="lang-ar"><strong>الإصدار:</strong> 1.0</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </div>
+
+    <div class="document">
+        <!-- Table of Contents -->
+        <div class="toc" id="toc">
+            <div class="toc-header">
+                <h2 class="toc-title">
+                    <span class="lang-en">Table of Contents</span>
+                    <span class="lang-ar">جدول المحتويات</span>
+                </h2>
+                <div class="toc-divider"></div>
+            </div>
+            <div class="toc-grid">
+                <!-- English TOC -->
+                <div class="lang-en">
+                    <div class="toc-section">
+                        <div class="toc-section-title">Section 1: Employing Staff</div>
+                        <div class="toc-links">
+                            <a href="#recruitment" class="toc-link">1.1 Recruitment</a>
+                            <a href="#induction" class="toc-link">1.2 Induction</a>
+                            <a href="#employment-standards" class="toc-link">1.3 Employment Standards</a>
+                            <a href="#business-conduct" class="toc-link">1.4 Business Conduct</a>
+                            <a href="#internet-email" class="toc-link">1.5 Internet & Email</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">Section 2: Managing Employee Performance</div>
+                        <div class="toc-links">
+                            <a href="#appraisal" class="toc-link">2.1 Performance Appraisal</a>
+                            <a href="#absence" class="toc-link">2.2 Absence Management</a>
+                            <a href="#disciplinary" class="toc-link">2.3 Disciplinary</a>
+                            <a href="#capability" class="toc-link">2.4 Capability</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">Section 3: Employee Concerns</div>
+                        <div class="toc-links">
+                            <a href="#grievance" class="toc-link">3.1 Grievance</a>
+                            <a href="#harassment" class="toc-link">3.2 Bullying & Harassment</a>
+                            <a href="#whistleblowing" class="toc-link">3.3 Whistleblowing</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">Section 4: Supporting Staff</div>
+                        <div class="toc-links">
+                            <a href="#equality" class="toc-link">4.1 Equality & Diversity</a>
+                            <a href="#drug-alcohol" class="toc-link">4.2 Drug & Alcohol</a>
+                            <a href="#health-safety" class="toc-link">4.3 Health & Safety</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Arabic TOC -->
+                <div class="lang-ar">
+                    <div class="toc-section">
+                        <div class="toc-section-title">القسم الأول: توظيف الموظفين</div>
+                        <div class="toc-links">
+                            <a href="#recruitment" class="toc-link">1.1 التوظيف</a>
+                            <a href="#induction" class="toc-link">1.2 التعريف بالعمل</a>
+                            <a href="#employment-standards" class="toc-link">1.3 معايير التوظيف</a>
+                            <a href="#business-conduct" class="toc-link">1.4 السلوك المهني</a>
+                            <a href="#internet-email" class="toc-link">1.5 الإنترنت والبريد الإلكتروني</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">القسم الثاني: إدارة أداء الموظفين</div>
+                        <div class="toc-links">
+                            <a href="#appraisal" class="toc-link">2.1 تقييم الأداء</a>
+                            <a href="#absence" class="toc-link">2.2 إدارة الغياب</a>
+                            <a href="#disciplinary" class="toc-link">2.3 الإجراءات التأديبية</a>
+                            <a href="#capability" class="toc-link">2.4 القدرات</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">القسم الثالث: مخاوف الموظفين</div>
+                        <div class="toc-links">
+                            <a href="#grievance" class="toc-link">3.1 التظلمات</a>
+                            <a href="#harassment" class="toc-link">3.2 التنمر والتحرش</a>
+                            <a href="#whistleblowing" class="toc-link">3.3 الإبلاغ عن المخالفات</a>
+                        </div>
+                    </div>
+                    <div class="toc-section">
+                        <div class="toc-section-title">القسم الرابع: دعم الموظفين</div>
+                        <div class="toc-links">
+                            <a href="#equality" class="toc-link">4.1 المساواة والتنوع</a>
+                            <a href="#drug-alcohol" class="toc-link">4.2 المخدرات والكحول</a>
+                            <a href="#health-safety" class="toc-link">4.3 الصحة والسلامة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Employing Staff -->
+        <div class="section" id="section1">
+            <div class="section-header">
+                <div class="section-number">
+                    <span class="lang-en">Section 1</span>
+                    <span class="lang-ar">القسم الأول</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="lang-en">Employing Staff</span>
+                    <span class="lang-ar">توظيف الموظفين</span>
+                </h1>
+            </div>
+
+            <h2 id="recruitment">
+                <span class="lang-en">1.1 Recruitment Policy</span>
+                <span class="lang-ar">1.1 سياسة التوظيف</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To ensure a fair, consistent and effective recruitment process that attracts and selects the best candidates for all positions within the company.</p>
+            <p class="lang-ar">ضمان عملية توظيف عادلة ومتسقة وفعالة تجذب وتختار أفضل المرشحين لجميع المناصب داخل الشركة.</p>
+
+            <h3>
+                <span class="lang-en">Scope</span>
+                <span class="lang-ar">النطاق</span>
+            </h3>
+            <p class="lang-en">This policy applies to all recruitment activities across all departments and levels within the organization.</p>
+            <p class="lang-ar">تنطبق هذه السياسة على جميع أنشطة التوظيف في جميع الإدارات والمستويات داخل المنظمة.</p>
+
+            <h3>
+                <span class="lang-en">Principles</span>
+                <span class="lang-ar">المبادئ</span>
+            </h3>
+            <ul class="lang-en">
+                <li>All recruitment will be conducted fairly, consistently and in accordance with relevant legislation</li>
+                <li>Selection will be based solely on merit and the ability to perform the job requirements</li>
+                <li>Equal opportunity will be given to all applicants regardless of race, gender, age, disability, religion, or any other protected characteristic</li>
+                <li>All vacancies will be advertised internally before external recruitment unless circumstances require otherwise</li>
+                <li>Recruitment processes will be transparent and documented</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>سيتم إجراء جميع عمليات التوظيف بشكل عادل ومتسق ووفقاً للتشريعات ذات الصلة</li>
+                <li>سيتم الاختيار بناءً على الجدارة والقدرة على أداء متطلبات الوظيفة فقط</li>
+                <li>ستُمنح فرص متساوية لجميع المتقدمين بغض النظر عن العرق أو الجنس أو العمر أو الإعاقة أو الدين أو أي خاصية محمية أخرى</li>
+                <li>سيتم الإعلان عن جميع الوظائف الشاغرة داخلياً قبل التوظيف الخارجي ما لم تتطلب الظروف خلاف ذلك</li>
+                <li>ستكون عمليات التوظيف شفافة وموثقة</li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Recruitment Process</span>
+                <span class="lang-ar">عملية التوظيف</span>
+            </h3>
+            <ol class="process-steps lang-en">
+                <li><strong>Job Requisition:</strong> Department manager submits a staffing request with job description and justification</li>
+                <li><strong>Job Posting:</strong> HR posts the vacancy internally and/or externally as appropriate</li>
+                <li><strong>Application Screening:</strong> HR reviews applications against job requirements and shortlists candidates</li>
+                <li><strong>Interviews:</strong> Structured interviews conducted by hiring manager and HR representative</li>
+                <li><strong>Selection:</strong> Best candidate selected based on merit and fit with company culture</li>
+                <li><strong>Offer and Onboarding:</strong> Formal offer extended and onboarding process initiated</li>
+            </ol>
+            <ol class="process-steps lang-ar">
+                <li><strong>طلب التوظيف:</strong> يقدم مدير القسم طلب توظيف مع الوصف الوظيفي والمبررات</li>
+                <li><strong>نشر الوظيفة:</strong> تنشر الموارد البشرية الوظيفة الشاغرة داخلياً و/أو خارجياً حسب الاقتضاء</li>
+                <li><strong>فرز الطلبات:</strong> تراجع الموارد البشرية الطلبات مقابل متطلبات الوظيفة وتضع قائمة مختصرة بالمرشحين</li>
+                <li><strong>المقابلات:</strong> إجراء مقابلات منظمة من قبل مدير التوظيف وممثل الموارد البشرية</li>
+                <li><strong>الاختيار:</strong> اختيار أفضل مرشح بناءً على الجدارة والتوافق مع ثقافة الشركة</li>
+                <li><strong>العرض والتهيئة:</strong> تقديم عرض رسمي وبدء عملية التهيئة</li>
+            </ol>
+
+            <h2 id="induction">
+                <span class="lang-en">1.2 Induction Policy</span>
+                <span class="lang-ar">1.2 سياسة التعريف بالعمل</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To ensure all new employees receive a comprehensive introduction to the company, their role, and the support needed to become effective team members.</p>
+            <p class="lang-ar">ضمان حصول جميع الموظفين الجدد على تعريف شامل بالشركة ودورهم والدعم اللازم ليصبحوا أعضاء فريق فعالين.</p>
+
+            <h3>
+                <span class="lang-en">Objectives</span>
+                <span class="lang-ar">الأهداف</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Welcome new employees and make them feel valued</li>
+                <li>Provide essential information about the company, policies, and procedures</li>
+                <li>Clarify job responsibilities and performance expectations</li>
+                <li>Introduce key colleagues and establish working relationships</li>
+                <li>Ensure compliance with health, safety, and legal requirements</li>
+                <li>Set the foundation for ongoing development and success</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الترحيب بالموظفين الجدد وجعلهم يشعرون بالتقدير</li>
+                <li>تقديم المعلومات الأساسية عن الشركة والسياسات والإجراءات</li>
+                <li>توضيح مسؤوليات الوظيفة وتوقعات الأداء</li>
+                <li>تقديم الزملاء الرئيسيين وإقامة علاقات عمل</li>
+                <li>ضمان الامتثال لمتطلبات الصحة والسلامة والمتطلبات القانونية</li>
+                <li>وضع الأساس للتطوير المستمر والنجاح</li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Responsibilities</span>
+                <span class="lang-ar">المسؤوليات</span>
+            </h3>
+            <div class="table-wrapper">
+                <table class="lang-en">
+                    <tr>
+                        <th>Role</th>
+                        <th>Responsibility</th>
+                    </tr>
+                    <tr>
+                        <td><strong>HR</strong></td>
+                        <td>Coordinate induction program, provide documentation, conduct HR-related sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manager</strong></td>
+                        <td>Prepare for arrival, provide job-specific training, set objectives, conduct regular check-ins</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Buddy</strong></td>
+                        <td>Provide informal support, answer questions, help with integration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Employee</strong></td>
+                        <td>Engage actively in induction, ask questions, complete required documentation</td>
+                    </tr>
+                </table>
+                <table class="lang-ar">
+                    <tr>
+                        <th>الدور</th>
+                        <th>المسؤولية</th>
+                    </tr>
+                    <tr>
+                        <td><strong>الموارد البشرية</strong></td>
+                        <td>تنسيق برنامج التعريف، توفير الوثائق، إجراء جلسات الموارد البشرية</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المدير</strong></td>
+                        <td>التحضير للوصول، توفير التدريب الخاص بالوظيفة، تحديد الأهداف، إجراء متابعات منتظمة</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المرافق</strong></td>
+                        <td>تقديم الدعم غير الرسمي، الإجابة على الأسئلة، المساعدة في الاندماج</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الموظف الجديد</strong></td>
+                        <td>المشاركة بنشاط في التعريف، طرح الأسئلة، إكمال الوثائق المطلوبة</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 id="employment-standards">
+                <span class="lang-en">1.3 Employment Standards</span>
+                <span class="lang-ar">1.3 معايير التوظيف</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To establish clear standards for employee behavior and performance that support a positive, productive workplace.</p>
+            <p class="lang-ar">وضع معايير واضحة لسلوك الموظفين وأدائهم تدعم بيئة عمل إيجابية ومنتجة.</p>
+
+            <h3>
+                <span class="lang-en">Employee Expectations</span>
+                <span class="lang-ar">توقعات الموظفين</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Maintain professional conduct at all times</li>
+                <li>Treat colleagues, customers, and stakeholders with respect</li>
+                <li>Perform duties to the best of your ability</li>
+                <li>Follow company policies and procedures</li>
+                <li>Protect company assets and confidential information</li>
+                <li>Report concerns through appropriate channels</li>
+                <li>Support a positive and inclusive work environment</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الحفاظ على السلوك المهني في جميع الأوقات</li>
+                <li>معاملة الزملاء والعملاء وأصحاب المصلحة باحترام</li>
+                <li>أداء الواجبات بأفضل ما لديك من قدرة</li>
+                <li>اتباع سياسات وإجراءات الشركة</li>
+                <li>حماية أصول الشركة والمعلومات السرية</li>
+                <li>الإبلاغ عن المخاوف من خلال القنوات المناسبة</li>
+                <li>دعم بيئة عمل إيجابية وشاملة</li>
+            </ul>
+
+            <div class="warning-box">
+                <p class="lang-en"><strong>Non-Compliance:</strong> Failure to meet employment standards may result in disciplinary action, up to and including termination of employment.</p>
+                <p class="lang-ar"><strong>عدم الامتثال:</strong> قد يؤدي عدم استيفاء معايير التوظيف إلى اتخاذ إجراءات تأديبية، قد تصل إلى إنهاء الخدمة.</p>
+            </div>
+
+            <h2 id="business-conduct">
+                <span class="lang-en">1.4 Standards of Business Conduct</span>
+                <span class="lang-ar">1.4 معايير السلوك المهني</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Principles</span>
+                <span class="lang-ar">المبادئ</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Act with integrity and honesty in all business dealings</li>
+                <li>Comply with all applicable laws and regulations</li>
+                <li>Avoid conflicts of interest and disclose potential conflicts</li>
+                <li>Protect company and client confidential information</li>
+                <li>Treat all stakeholders fairly and with respect</li>
+                <li>Report any unethical behavior or violations</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>التصرف بنزاهة وأمانة في جميع المعاملات التجارية</li>
+                <li>الامتثال لجميع القوانين واللوائح المعمول بها</li>
+                <li>تجنب تضارب المصالح والإفصاح عن التضاربات المحتملة</li>
+                <li>حماية المعلومات السرية للشركة والعملاء</li>
+                <li>معاملة جميع أصحاب المصلحة بإنصاف واحترام</li>
+                <li>الإبلاغ عن أي سلوك غير أخلاقي أو انتهاكات</li>
+            </ul>
+
+            <div class="info-box">
+                <p class="lang-en"><strong>Action Required:</strong> All potential conflicts must be disclosed to HR and management for review and resolution.</p>
+                <p class="lang-ar"><strong>إجراء مطلوب:</strong> يجب الإفصاح عن جميع التضاربات المحتملة للموارد البشرية والإدارة للمراجعة والحل.</p>
+            </div>
+
+            <h2 id="internet-email">
+                <span class="lang-en">1.5 Internet and Email Usage Policy</span>
+                <span class="lang-ar">1.5 سياسة استخدام الإنترنت والبريد الإلكتروني</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Acceptable Use</span>
+                <span class="lang-ar">الاستخدام المقبول</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Business-related research and communication</li>
+                <li>Professional development and learning</li>
+                <li>Limited personal use during breaks, provided it does not interfere with work</li>
+                <li>Communication with colleagues and external stakeholders</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>البحث والتواصل المتعلق بالعمل</li>
+                <li>التطوير المهني والتعلم</li>
+                <li>الاستخدام الشخصي المحدود أثناء فترات الراحة، بشرط ألا يتعارض مع العمل</li>
+                <li>التواصل مع الزملاء وأصحاب المصلحة الخارجيين</li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Prohibited Use</span>
+                <span class="lang-ar">الاستخدام المحظور</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Accessing or distributing inappropriate, offensive, or illegal content</li>
+                <li>Downloading unauthorized software or files</li>
+                <li>Using personal email for business communications</li>
+                <li>Sharing confidential information externally</li>
+                <li>Engaging in activities that could harm company reputation</li>
+                <li>Excessive personal use that impacts productivity</li>
+                <li>Attempting to bypass security measures</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الوصول إلى أو توزيع محتوى غير لائق أو مسيء أو غير قانوني</li>
+                <li>تنزيل برامج أو ملفات غير مصرح بها</li>
+                <li>استخدام البريد الإلكتروني الشخصي للاتصالات التجارية</li>
+                <li>مشاركة المعلومات السرية خارجياً</li>
+                <li>المشاركة في أنشطة قد تضر بسمعة الشركة</li>
+                <li>الاستخدام الشخصي المفرط الذي يؤثر على الإنتاجية</li>
+                <li>محاولة تجاوز إجراءات الأمان</li>
+            </ul>
+
+            <div class="info-box">
+                <p class="lang-en"><strong>Monitoring:</strong> The company reserves the right to monitor internet and email usage to ensure compliance with this policy and to protect company interests.</p>
+                <p class="lang-ar"><strong>المراقبة:</strong> تحتفظ الشركة بالحق في مراقبة استخدام الإنترنت والبريد الإلكتروني لضمان الامتثال لهذه السياسة وحماية مصالح الشركة.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Managing Employee Performance -->
+        <div class="section" id="section2">
+            <div class="section-header">
+                <div class="section-number">
+                    <span class="lang-en">Section 2</span>
+                    <span class="lang-ar">القسم الثاني</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="lang-en">Managing Employee Performance</span>
+                    <span class="lang-ar">إدارة أداء الموظفين</span>
+                </h1>
+            </div>
+
+            <h2 id="appraisal">
+                <span class="lang-en">2.1 Performance Appraisal Policy</span>
+                <span class="lang-ar">2.1 سياسة تقييم الأداء</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To establish a fair and consistent process for evaluating employee performance and supporting continuous improvement.</p>
+            <p class="lang-ar">وضع عملية عادلة ومتسقة لتقييم أداء الموظفين ودعم التحسين المستمر.</p>
+
+            <h3>
+                <span class="lang-en">Performance Ratings</span>
+                <span class="lang-ar">تصنيفات الأداء</span>
+            </h3>
+            <div class="table-wrapper">
+                <table class="lang-en">
+                    <tr>
+                        <th>Rating</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Exceptional</strong></td>
+                        <td>Consistently exceeds expectations in all areas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strong</strong></td>
+                        <td>Meets and often exceeds expectations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Competent</strong></td>
+                        <td>Consistently meets expectations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Developing</strong></td>
+                        <td>Meeting some but not all expectations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unsatisfactory</strong></td>
+                        <td>Not meeting expectations</td>
+                    </tr>
+                </table>
+                <table class="lang-ar">
+                    <tr>
+                        <th>التصنيف</th>
+                        <th>الوصف</th>
+                    </tr>
+                    <tr>
+                        <td><strong>استثنائي</strong></td>
+                        <td>يتجاوز التوقعات باستمرار في جميع المجالات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>قوي</strong></td>
+                        <td>يلبي وغالباً ما يتجاوز التوقعات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>كفء</strong></td>
+                        <td>يلبي التوقعات باستمرار</td>
+                    </tr>
+                    <tr>
+                        <td><strong>في طور التطوير</strong></td>
+                        <td>يلبي بعض التوقعات وليس جميعها</td>
+                    </tr>
+                    <tr>
+                        <td><strong>غير مرضٍ</strong></td>
+                        <td>لا يلبي التوقعات</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 id="absence">
+                <span class="lang-en">2.2 Absence Management Policy</span>
+                <span class="lang-ar">2.2 سياسة إدارة الغياب</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Types of Absence</span>
+                <span class="lang-ar">أنواع الغياب</span>
+            </h3>
+            <div class="table-wrapper">
+                <table class="lang-en">
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Sick Leave</td>
+                        <td>Absence due to illness or injury</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Leave</td>
+                        <td>Planned vacation time</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Leave</td>
+                        <td>Leave for personal matters</td>
+                    </tr>
+                    <tr>
+                        <td>Emergency Leave</td>
+                        <td>Unplanned leave for emergencies</td>
+                    </tr>
+                    <tr>
+                        <td>Maternity/Paternity Leave</td>
+                        <td>Leave for new parents</td>
+                    </tr>
+                </table>
+                <table class="lang-ar">
+                    <tr>
+                        <th>النوع</th>
+                        <th>الوصف</th>
+                    </tr>
+                    <tr>
+                        <td>إجازة مرضية</td>
+                        <td>الغياب بسبب المرض أو الإصابة</td>
+                    </tr>
+                    <tr>
+                        <td>إجازة سنوية</td>
+                        <td>وقت الإجازة المخطط له</td>
+                    </tr>
+                    <tr>
+                        <td>إجازة شخصية</td>
+                        <td>إجازة للأمور الشخصية</td>
+                    </tr>
+                    <tr>
+                        <td>إجازة طارئة</td>
+                        <td>إجازة غير مخططة للطوارئ</td>
+                    </tr>
+                    <tr>
+                        <td>إجازة أمومة/أبوة</td>
+                        <td>إجازة للوالدين الجدد</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 id="disciplinary">
+                <span class="lang-en">2.3 Disciplinary Procedure</span>
+                <span class="lang-ar">2.3 الإجراءات التأديبية</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Disciplinary Stages</span>
+                <span class="lang-ar">مراحل التأديب</span>
+            </h3>
+            <div class="table-wrapper">
+                <table class="lang-en">
+                    <tr>
+                        <th>Stage</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 1</strong></td>
+                        <td>Informal Discussion - Manager discusses concerns with employee and agrees actions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 2</strong></td>
+                        <td>First Written Warning - Formal warning for continued or more serious issues</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 3</strong></td>
+                        <td>Final Written Warning - Serious warning indicating risk of dismissal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 4</strong></td>
+                        <td>Dismissal - Termination of employment for continued or gross misconduct</td>
+                    </tr>
+                </table>
+                <table class="lang-ar">
+                    <tr>
+                        <th>المرحلة</th>
+                        <th>الإجراء</th>
+                    </tr>
+                    <tr>
+                        <td><strong>المرحلة 1</strong></td>
+                        <td>مناقشة غير رسمية - يناقش المدير المخاوف مع الموظف ويتفق على الإجراءات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المرحلة 2</strong></td>
+                        <td>إنذار كتابي أول - إنذار رسمي للمشاكل المستمرة أو الأكثر خطورة</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المرحلة 3</strong></td>
+                        <td>إنذار كتابي نهائي - إنذار خطير يشير إلى خطر الفصل</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المرحلة 4</strong></td>
+                        <td>الفصل - إنهاء التوظيف بسبب سوء السلوك المستمر أو الجسيم</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="important-box">
+                <div class="lang-en">
+                    <p><strong>Gross Misconduct includes:</strong></p>
+                    <ul>
+                        <li>Theft, fraud, or dishonesty</li>
+                        <li>Violence or physical assault</li>
+                        <li>Serious harassment or discrimination</li>
+                        <li>Serious breach of health and safety</li>
+                        <li>Being under influence of drugs or alcohol at work</li>
+                    </ul>
+                </div>
+                <div class="lang-ar">
+                    <p><strong>سوء السلوك الجسيم يشمل:</strong></p>
+                    <ul>
+                        <li>السرقة أو الاحتيال أو عدم الأمانة</li>
+                        <li>العنف أو الاعتداء الجسدي</li>
+                        <li>التحرش أو التمييز الخطير</li>
+                        <li>الانتهاك الخطير للصحة والسلامة</li>
+                        <li>التواجد تحت تأثير المخدرات أو الكحول في العمل</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 id="capability">
+                <span class="lang-en">2.4 Capability Procedure</span>
+                <span class="lang-ar">2.4 إجراءات القدرات</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To provide a fair process for addressing situations where an employee is unable to perform their job to the required standard.</p>
+            <p class="lang-ar">توفير عملية عادلة لمعالجة المواقف التي يكون فيها الموظف غير قادر على أداء وظيفته بالمستوى المطلوب.</p>
+
+            <div class="info-box">
+                <p class="lang-en"><strong>Note:</strong> Capability issues differ from misconduct - they relate to ability rather than behavior.</p>
+                <p class="lang-ar"><strong>ملاحظة:</strong> تختلف مشاكل القدرات عن سوء السلوك - فهي تتعلق بالقدرة وليس السلوك.</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Employee Concerns -->
+        <div class="section" id="section3">
+            <div class="section-header">
+                <div class="section-number">
+                    <span class="lang-en">Section 3</span>
+                    <span class="lang-ar">القسم الثالث</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="lang-en">Employee Concerns</span>
+                    <span class="lang-ar">مخاوف الموظفين</span>
+                </h1>
+            </div>
+
+            <h2 id="grievance">
+                <span class="lang-en">3.1 Grievance Procedure</span>
+                <span class="lang-ar">3.1 إجراءات التظلم</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To provide employees with a fair and effective process for raising concerns about their employment.</p>
+            <p class="lang-ar">تزويد الموظفين بعملية عادلة وفعالة لرفع المخاوف حول توظيفهم.</p>
+
+            <h3>
+                <span class="lang-en">Principles</span>
+                <span class="lang-ar">المبادئ</span>
+            </h3>
+            <ul class="lang-en">
+                <li>All grievances will be treated seriously and confidentially</li>
+                <li>Employees will not suffer detriment for raising a grievance</li>
+                <li>Issues will be addressed promptly and fairly</li>
+                <li>Right to be accompanied at formal meetings</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>ستُعامل جميع التظلمات بجدية وسرية</li>
+                <li>لن يتعرض الموظفون لأي ضرر بسبب رفع تظلم</li>
+                <li>ستُعالج المشاكل بسرعة وإنصاف</li>
+                <li>الحق في الاصطحاب في الاجتماعات الرسمية</li>
+            </ul>
+
+            <h2 id="harassment">
+                <span class="lang-en">3.2 Prevention of Bullying and Harassment</span>
+                <span class="lang-ar">3.2 منع التنمر والتحرش</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To create a work environment free from bullying and harassment where all employees are treated with dignity and respect.</p>
+            <p class="lang-ar">خلق بيئة عمل خالية من التنمر والتحرش حيث يُعامل جميع الموظفين بكرامة واحترام.</p>
+
+            <h3>
+                <span class="lang-en">Examples of Unacceptable Behavior</span>
+                <span class="lang-ar">أمثلة على السلوك غير المقبول</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Verbal abuse, insults, or offensive jokes</li>
+                <li>Physical intimidation or threats</li>
+                <li>Unwanted physical contact</li>
+                <li>Spreading malicious rumors</li>
+                <li>Exclusion from activities or information</li>
+                <li>Offensive emails, messages, or images</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الإساءة اللفظية أو الإهانات أو النكات المسيئة</li>
+                <li>الترهيب الجسدي أو التهديدات</li>
+                <li>الاتصال الجسدي غير المرغوب فيه</li>
+                <li>نشر الشائعات الخبيثة</li>
+                <li>الاستبعاد من الأنشطة أو المعلومات</li>
+                <li>الرسائل الإلكترونية أو الرسائل أو الصور المسيئة</li>
+            </ul>
+
+            <div class="important-box">
+                <p class="lang-en"><strong>Consequences:</strong> Harassment and bullying are treated as serious misconduct and may result in disciplinary action up to dismissal.</p>
+                <p class="lang-ar"><strong>العواقب:</strong> يُعامل التحرش والتنمر كسوء سلوك جسيم وقد يؤدي إلى إجراءات تأديبية تصل إلى الفصل.</p>
+            </div>
+
+            <h2 id="whistleblowing">
+                <span class="lang-en">3.3 Whistleblowing Policy</span>
+                <span class="lang-ar">3.3 سياسة الإبلاغ عن المخالفات</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Purpose</span>
+                <span class="lang-ar">الهدف</span>
+            </h3>
+            <p class="lang-en">To enable employees to report concerns about wrongdoing without fear of reprisal.</p>
+            <p class="lang-ar">تمكين الموظفين من الإبلاغ عن المخاوف بشأن المخالفات دون خوف من الانتقام.</p>
+
+            <h3>
+                <span class="lang-en">Protected Disclosures</span>
+                <span class="lang-ar">الإفصاحات المحمية</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Criminal offenses</li>
+                <li>Failure to comply with legal obligations</li>
+                <li>Danger to health and safety</li>
+                <li>Environmental damage</li>
+                <li>Deliberate concealment of any of the above</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الجرائم الجنائية</li>
+                <li>عدم الامتثال للالتزامات القانونية</li>
+                <li>الخطر على الصحة والسلامة</li>
+                <li>الأضرار البيئية</li>
+                <li>الإخفاء المتعمد لأي مما سبق</li>
+            </ul>
+
+            <div class="info-box">
+                <div class="lang-en">
+                    <p><strong>Protection for Whistleblowers:</strong></p>
+                    <ul>
+                        <li>No employee will suffer detriment for making a disclosure in good faith</li>
+                        <li>Confidentiality will be maintained where possible</li>
+                        <li>Investigation will be conducted fairly</li>
+                        <li>Support will be provided throughout the process</li>
+                    </ul>
+                </div>
+                <div class="lang-ar">
+                    <p><strong>حماية المبلغين عن المخالفات:</strong></p>
+                    <ul>
+                        <li>لن يتعرض أي موظف لضرر بسبب الإفصاح بحسن نية</li>
+                        <li>ستُحافظ على السرية حيثما أمكن</li>
+                        <li>سيُجرى التحقيق بإنصاف</li>
+                        <li>سيُقدم الدعم طوال العملية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Supporting Staff -->
+        <div class="section" id="section4">
+            <div class="section-header">
+                <div class="section-number">
+                    <span class="lang-en">Section 4</span>
+                    <span class="lang-ar">القسم الرابع</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="lang-en">Supporting Staff</span>
+                    <span class="lang-ar">دعم الموظفين</span>
+                </h1>
+            </div>
+
+            <h2 id="equality">
+                <span class="lang-en">4.1 Equality and Diversity Policy</span>
+                <span class="lang-ar">4.1 سياسة المساواة والتنوع</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Commitment</span>
+                <span class="lang-ar">الالتزام</span>
+            </h3>
+            <p class="lang-en">We are committed to eliminating discrimination and promoting equality across all aspects of employment.</p>
+            <p class="lang-ar">نحن ملتزمون بالقضاء على التمييز وتعزيز المساواة في جميع جوانب التوظيف.</p>
+
+            <h3>
+                <span class="lang-en">Protected Characteristics</span>
+                <span class="lang-ar">الخصائص المحمية</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Age</li>
+                <li>Disability</li>
+                <li>Gender</li>
+                <li>Marriage and civil partnership</li>
+                <li>Pregnancy and maternity</li>
+                <li>Race</li>
+                <li>Religion or belief</li>
+                <li>Sexual orientation</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>العمر</li>
+                <li>الإعاقة</li>
+                <li>الجنس</li>
+                <li>الزواج والشراكة المدنية</li>
+                <li>الحمل والأمومة</li>
+                <li>العرق</li>
+                <li>الدين أو المعتقد</li>
+                <li>التوجه الجنسي</li>
+            </ul>
+
+            <h2 id="drug-alcohol">
+                <span class="lang-en">4.2 Drug and Alcohol Policy</span>
+                <span class="lang-ar">4.2 سياسة المخدرات والكحول</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Standards</span>
+                <span class="lang-ar">المعايير</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Employees must not be under the influence of drugs or alcohol at work</li>
+                <li>Prescription medications must be declared if they may affect work</li>
+                <li>Illegal drugs are strictly prohibited on company premises</li>
+                <li>Alcohol consumption during work hours is prohibited except at authorized events</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>يجب ألا يكون الموظفون تحت تأثير المخدرات أو الكحول في العمل</li>
+                <li>يجب الإعلان عن الأدوية الموصوفة إذا كانت قد تؤثر على العمل</li>
+                <li>المخدرات غير المشروعة محظورة تماماً في مباني الشركة</li>
+                <li>استهلاك الكحول خلال ساعات العمل محظور إلا في المناسبات المصرح بها</li>
+            </ul>
+
+            <div class="important-box">
+                <p class="lang-en"><strong>Consequences:</strong> Being under the influence at work or possessing illegal substances is gross misconduct and may result in dismissal.</p>
+                <p class="lang-ar"><strong>العواقب:</strong> التواجد تحت التأثير في العمل أو حيازة مواد غير مشروعة يعتبر سوء سلوك جسيم وقد يؤدي إلى الفصل.</p>
+            </div>
+
+            <h2 id="health-safety">
+                <span class="lang-en">4.3 Health and Safety Policy</span>
+                <span class="lang-ar">4.3 سياسة الصحة والسلامة</span>
+            </h2>
+
+            <h3>
+                <span class="lang-en">Statement</span>
+                <span class="lang-ar">البيان</span>
+            </h3>
+            <p class="lang-en">We are committed to providing and maintaining a safe and healthy working environment for all employees, contractors, and visitors.</p>
+            <p class="lang-ar">نحن ملتزمون بتوفير والحفاظ على بيئة عمل آمنة وصحية لجميع الموظفين والمقاولين والزوار.</p>
+
+            <h3>
+                <span class="lang-en">Employer Responsibilities</span>
+                <span class="lang-ar">مسؤوليات صاحب العمل</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Provide safe systems of work</li>
+                <li>Ensure equipment is safe and maintained</li>
+                <li>Provide necessary training and supervision</li>
+                <li>Conduct risk assessments</li>
+                <li>Provide appropriate personal protective equipment</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>توفير أنظمة عمل آمنة</li>
+                <li>ضمان أن المعدات آمنة ومُصانة</li>
+                <li>توفير التدريب والإشراف اللازمين</li>
+                <li>إجراء تقييمات المخاطر</li>
+                <li>توفير معدات الحماية الشخصية المناسبة</li>
+            </ul>
+
+            <h3>
+                <span class="lang-en">Employee Responsibilities</span>
+                <span class="lang-ar">مسؤوليات الموظف</span>
+            </h3>
+            <ul class="lang-en">
+                <li>Take reasonable care of own health and safety</li>
+                <li>Follow safety procedures and instructions</li>
+                <li>Report hazards and concerns</li>
+                <li>Use equipment properly</li>
+                <li>Attend required training</li>
+            </ul>
+            <ul class="lang-ar">
+                <li>الاهتمام المعقول بصحتك وسلامتك</li>
+                <li>اتباع إجراءات وتعليمات السلامة</li>
+                <li>الإبلاغ عن المخاطر والمخاوف</li>
+                <li>استخدام المعدات بشكل صحيح</li>
+                <li>حضور التدريب المطلوب</li>
+            </ul>
+        </div>
+
+        <!-- Acknowledgment -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">
+                    <span class="lang-en">Acknowledgment</span>
+                    <span class="lang-ar">إقرار</span>
+                </div>
+                <h1 class="section-title">
+                    <span class="lang-en">Employee Acknowledgment</span>
+                    <span class="lang-ar">إقرار الموظف</span>
+                </h1>
+            </div>
+
+            <p class="lang-en">I acknowledge that I have received, read, and understood the HR Policy Manual of ARS International Co.SPC. I agree to comply with all policies and procedures outlined in this manual.</p>
+            <p class="lang-ar">أقر بأنني قد استلمت وقرأت وفهمت دليل سياسات الموارد البشرية لشركة ARS International Co.SPC. وأوافق على الامتثال لجميع السياسات والإجراءات الموضحة في هذا الدليل.</p>
+
+            <div class="signature-section">
+                <div class="signature-box">
+                    <div class="signature-row">
+                        <div class="signature-field">
+                            <label>
+                                <span class="lang-en">Employee Name</span>
+                                <span class="lang-ar">اسم الموظف</span>
+                            </label>
+                            <div class="signature-line"></div>
+                        </div>
+                        <div class="signature-field">
+                            <label>
+                                <span class="lang-en">Employee ID</span>
+                                <span class="lang-ar">رقم الموظف</span>
+                            </label>
+                            <div class="signature-line"></div>
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-field">
+                            <label>
+                                <span class="lang-en">Department</span>
+                                <span class="lang-ar">القسم</span>
+                            </label>
+                            <div class="signature-line"></div>
+                        </div>
+                        <div class="signature-field">
+                            <label>
+                                <span class="lang-en">Date</span>
+                                <span class="lang-ar">التاريخ</span>
+                            </label>
+                            <div class="signature-line"></div>
+                        </div>
+                    </div>
+                    <div class="signature-row">
+                        <div class="signature-field" style="grid-column: 1 / -1;">
+                            <label>
+                                <span class="lang-en">Employee Signature</span>
+                                <span class="lang-ar">توقيع الموظف</span>
+                            </label>
+                            <div class="signature-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="document-footer">
+            <p class="footer-text lang-en">This HR Policy Manual is the property of ARS International Co.SPC. All policies are subject to change at the discretion of management. Employees will be notified of any changes.</p>
+            <p class="footer-text lang-ar">دليل سياسات الموارد البشرية هذا ملك لشركة ARS International Co.SPC. جميع السياسات قابلة للتغيير حسب تقدير الإدارة. سيتم إخطار الموظفين بأي تغييرات.</p>
+            <div class="footer-meta">
+                <span><strong class="lang-en">Version:</strong><strong class="lang-ar">الإصدار:</strong> 1.0</span>
+                <span><strong class="lang-en">Updated:</strong><strong class="lang-ar">التحديث:</strong> <span class="lang-en">December 2024</span><span class="lang-ar">ديسمبر 2024</span></span>
+                <span><strong class="lang-en">Review:</strong><strong class="lang-ar">المراجعة:</strong> <span class="lang-en">December 2025</span><span class="lang-ar">ديسمبر 2025</span></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language switching
+        function setLanguage(lang) {
+            const html = document.documentElement;
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(savedLang);
+
+            // Update button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if ((savedLang === 'en' && btn.textContent === 'English') ||
+                    (savedLang === 'ar' && btn.textContent === 'العربية')) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Sidebar toggle
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('.sidebar-overlay').classList.toggle('active');
+            document.querySelector('.nav-toggle').classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+            document.querySelector('.nav-toggle').classList.remove('active');
+        }
+
+        // Back to top
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Download PDF
+        function downloadPDF() {
+            document.querySelector('.download-btn').style.display = 'none';
+            document.querySelector('.nav-toggle').style.display = 'none';
+            document.querySelector('.back-to-top').style.display = 'none';
+            document.querySelector('.language-selector').style.display = 'none';
+
+            window.print();
+
+            setTimeout(() => {
+                document.querySelector('.download-btn').style.display = 'flex';
+                document.querySelector('.nav-toggle').style.display = 'flex';
+                document.querySelector('.back-to-top').style.display = 'flex';
+                document.querySelector('.language-selector').style.display = 'flex';
+            }, 1000);
+        }
+
+        // Close sidebar on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSidebar();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 20;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
