@@ -1,8 +1,33 @@
 [build]
   publish = "."
 
+# Clean URL redirects for each language page
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/english"
+  to = "/english.html"
   status = 200
-  force = false
+
+[[redirects]]
+  from = "/arabic"
+  to = "/arabic.html"
+  status = 200
+
+[[redirects]]
+  from = "/hindi"
+  to = "/hindi.html"
+  status = 200
+
+[[redirects]]
+  from = "/malayalam"
+  to = "/malayalam.html"
+  status = 200
+
+[[redirects]]
+  from = "/bengali"
+  to = "/bengali.html"
+  status = 200
+
+[[redirects]]
+  from = "/nepali"
+  to = "/nepali.html"
+  status = 200
