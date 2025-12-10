@@ -6,7 +6,7 @@
     <title>HR Policy Manual - ARS International Co.SPC.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
@@ -145,12 +145,14 @@
             right: 80px;
             z-index: 1002;
             display: flex;
-            gap: 8px;
+            flex-wrap: wrap;
+            gap: 6px;
             background: var(--surface);
-            padding: 8px 12px;
-            border-radius: 50px;
+            padding: 10px 14px;
+            border-radius: 16px;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
+            max-width: 420px;
         }
 
         html[dir="rtl"] .language-selector {
@@ -159,20 +161,23 @@
         }
 
         .lang-btn {
-            padding: 8px 16px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             font-family: 'Outfit', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             background: transparent;
             color: var(--text);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .lang-btn:hover {
             background: var(--surface-dark);
+            transform: translateY(-1px);
         }
 
         .lang-btn.active {
@@ -182,6 +187,18 @@
 
         .lang-btn-ar {
             font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .lang-btn-hi, .lang-btn-ne {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .lang-btn-bn {
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        .lang-btn-ml {
+            font-family: 'Noto Sans Malayalam', sans-serif;
         }
 
         /* Utility Classes */
@@ -1019,7 +1036,9 @@
             .sidebar-overlay,
             .back-to-top,
             .scroll-indicator,
-            .language-selector {
+            .language-selector,
+            .feedback-box,
+            .feedback-modal {
                 display: none !important;
             }
 
@@ -1067,6 +1086,231 @@
             }
         }
 
+        /* Feedback Box */
+        .feedback-box {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            z-index: 1000;
+        }
+
+        html[dir="rtl"] .feedback-box {
+            right: auto;
+            left: 24px;
+        }
+
+        .feedback-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .feedback-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feedback-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .feedback-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .feedback-modal.active {
+            display: flex;
+        }
+
+        .feedback-modal-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feedback-modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feedback-modal-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .feedback-close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .feedback-close-btn:hover {
+            color: var(--text-dark);
+        }
+
+        .feedback-modal-body {
+            padding: 24px;
+        }
+
+        .feedback-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feedback-type-btn {
+            padding: 10px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .feedback-type-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .feedback-type-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .feedback-type-btn.complaint {
+            border-color: var(--danger);
+        }
+
+        .feedback-type-btn.complaint.active {
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .feedback-type-btn.suggestion {
+            border-color: var(--success);
+        }
+
+        .feedback-type-btn.suggestion.active {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .feedback-form-group {
+            margin-bottom: 16px;
+        }
+
+        .feedback-form-group label {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .feedback-form-group input,
+        .feedback-form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .feedback-form-group input:focus,
+        .feedback-form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .feedback-form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .feedback-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .feedback-submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .feedback-success {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .feedback-success svg {
+            width: 60px;
+            height: 60px;
+            color: var(--success);
+            margin-bottom: 16px;
+        }
+
+        .feedback-success h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .feedback-success p {
+            color: var(--text-light);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -1076,17 +1320,30 @@
             .language-selector {
                 top: 10px;
                 right: 10px;
-                padding: 6px 8px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+                padding: 8px 10px;
+                justify-content: center;
             }
 
             html[dir="rtl"] .language-selector {
-                right: auto;
+                right: 10px;
                 left: 10px;
             }
 
             .lang-btn {
-                padding: 6px 12px;
-                font-size: 12px;
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+
+            .feedback-box {
+                bottom: 80px;
+                right: 16px;
+            }
+
+            .feedback-btn {
+                padding: 10px 16px;
+                font-size: 13px;
             }
 
             .cover {
@@ -1250,8 +1507,12 @@
 <body>
     <!-- Language Selector -->
     <div class="language-selector">
-        <button class="lang-btn active" onclick="setLanguage('en')">English</button>
-        <button class="lang-btn lang-btn-ar" onclick="setLanguage('ar')">العربية</button>
+        <a href="hr-english-full.html" class="lang-btn active">English</a>
+        <a href="hr-arabic-full.html" class="lang-btn lang-btn-ar">العربية</a>
+        <a href="hr-hindi-full.html" class="lang-btn lang-btn-hi">हिन्दी</a>
+        <a href="hr-bengali-full.html" class="lang-btn lang-btn-bn">বাংলা</a>
+        <a href="hr-malayalam-full.html" class="lang-btn lang-btn-ml">മലയാളം</a>
+        <a href="hr-nepali-full.html" class="lang-btn lang-btn-ne">नेपाली</a>
     </div>
 
     <!-- Navigation Toggle -->
@@ -1352,6 +1613,53 @@
         <span class="lang-en">Download PDF</span>
         <span class="lang-ar">تحميل PDF</span>
     </button>
+
+    <!-- Feedback Box -->
+    <div class="feedback-box">
+        <button class="feedback-btn" onclick="openFeedbackModal()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            Feedback
+        </button>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-modal-content">
+            <div class="feedback-modal-header">
+                <h3>Feedback, Complaints & Suggestions</h3>
+                <button class="feedback-close-btn" onclick="closeFeedbackModal()">&times;</button>
+            </div>
+            <div class="feedback-modal-body" id="feedbackFormContainer">
+                <div class="feedback-type-selector">
+                    <button class="feedback-type-btn active" onclick="selectFeedbackType(this, 'feedback')">Feedback</button>
+                    <button class="feedback-type-btn complaint" onclick="selectFeedbackType(this, 'complaint')">Complaint</button>
+                    <button class="feedback-type-btn suggestion" onclick="selectFeedbackType(this, 'suggestion')">Suggestion</button>
+                </div>
+                <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                    <input type="hidden" id="feedbackType" value="feedback">
+                    <div class="feedback-form-group">
+                        <label for="feedbackName">Your Name</label>
+                        <input type="text" id="feedbackName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label for="feedbackEmail">Email Address</label>
+                        <input type="email" id="feedbackEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label for="feedbackSubject">Subject</label>
+                        <input type="text" id="feedbackSubject" placeholder="Brief subject" required>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label for="feedbackMessage">Message</label>
+                        <textarea id="feedbackMessage" placeholder="Please provide details..." required></textarea>
+                    </div>
+                    <button type="submit" class="feedback-submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top -->
     <button class="back-to-top" onclick="scrollToTop()">
@@ -2412,6 +2720,7 @@
             document.querySelector('.nav-toggle').style.display = 'none';
             document.querySelector('.back-to-top').style.display = 'none';
             document.querySelector('.language-selector').style.display = 'none';
+            document.querySelector('.feedback-box').style.display = 'none';
 
             window.print();
 
@@ -2420,13 +2729,74 @@
                 document.querySelector('.nav-toggle').style.display = 'flex';
                 document.querySelector('.back-to-top').style.display = 'flex';
                 document.querySelector('.language-selector').style.display = 'flex';
+                document.querySelector('.feedback-box').style.display = 'block';
             }, 1000);
         }
 
-        // Close sidebar on escape key
+        // Feedback Modal Functions
+        function openFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form
+            document.getElementById('feedbackForm').reset();
+            document.querySelectorAll('.feedback-type-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.feedback-type-btn').classList.add('active');
+            document.getElementById('feedbackType').value = 'feedback';
+        }
+
+        function selectFeedbackType(btn, type) {
+            document.querySelectorAll('.feedback-type-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('feedbackType').value = type;
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+
+            const formData = {
+                type: document.getElementById('feedbackType').value,
+                name: document.getElementById('feedbackName').value,
+                email: document.getElementById('feedbackEmail').value,
+                subject: document.getElementById('feedbackSubject').value,
+                message: document.getElementById('feedbackMessage').value
+            };
+
+            // Show success message
+            document.getElementById('feedbackFormContainer').innerHTML = `
+                <div class="feedback-success">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h4>Thank You!</h4>
+                    <p>Your ${formData.type} has been submitted successfully.<br>We will review it and get back to you soon.</p>
+                </div>
+            `;
+
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                closeFeedbackModal();
+                // Restore form
+                location.reload();
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('feedbackModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFeedbackModal();
+            }
+        });
+
+        // Close sidebar and modal on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeSidebar();
+                closeFeedbackModal();
             }
         });
 
