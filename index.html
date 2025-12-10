@@ -5,144 +5,367 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Policy Manual - ARS International</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #2D2D2D 0%, #1a1a1a 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background shapes */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 15s infinite ease-in-out;
+        }
+        .shape:nth-child(1) { width: 300px; height: 300px; top: -100px; left: -100px; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 200px; height: 200px; top: 50%; right: -50px; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 150px; height: 150px; bottom: -50px; left: 30%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 250px; height: 250px; top: 20%; left: 60%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .logo span {
+            color: #ffd700;
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+        .lang-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+        .lang-dropdown.active .lang-btn svg {
+            transform: rotate(180deg);
+        }
+        .lang-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 200px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .lang-dropdown.active .lang-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .lang-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .lang-menu a:hover {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: #fff;
+        }
+        .lang-menu a .native {
+            color: #888;
+            font-size: 12px;
+        }
+        .lang-menu a:hover .native {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 1;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        .header {
+            padding: 120px 40px 60px;
             text-align: center;
-            margin-bottom: 50px;
         }
-        .header h1 {
+        .hero-content {
+            max-width: 800px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
             color: #fff;
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
-        .header p {
-            color: rgba(255,255,255,0.6);
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+        .hero h1 span {
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            border-radius: 50px;
             font-size: 16px;
-        }
-        .divider {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #8B7355, #A89078);
-            margin: 30px auto;
-            border-radius: 2px;
-        }
-        .languages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-        .lang-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 28px;
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            display: block;
         }
-        .lang-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        .btn-primary {
+            background: #fff;
+            color: #764ba2;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
-        .lang-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2D2D2D;
-            margin-bottom: 6px;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
         }
-        .lang-native {
-            font-size: 18px;
-            color: #8B7355;
-            margin-bottom: 12px;
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
         }
-        .lang-desc {
-            font-size: 13px;
-            color: #6B6B6B;
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #fff;
         }
-        .lang-card .arrow {
-            float: right;
-            color: #8B7355;
-            font-size: 20px;
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 80px;
         }
-        .footer {
+        .feature {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
             text-align: center;
-            margin-top: 50px;
-            color: rgba(255,255,255,0.4);
-            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .feature h3 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .feature p {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 15px 20px; }
+            .hero { padding: 100px 20px 40px; }
+            .logo { font-size: 20px; }
+            .lang-btn { padding: 10px 16px; font-size: 13px; }
+            .btn { padding: 14px 28px; font-size: 14px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>HR Policy Manual</h1>
-            <p>ARS International Co. S.P.C.</p>
-            <div class="divider"></div>
-            <p style="color: rgba(255,255,255,0.5); font-size: 14px;">Select your preferred language</p>
-        </div>
-        
-        <div class="languages">
-            <a href="english.html" class="lang-card">
-                <span class="arrow">→</span>
-                <div class="lang-name">English</div>
-                <div class="lang-native">English</div>
-                <div class="lang-desc">Complete 79-page HR Policy Manual</div>
-            </a>
-            
-            <a href="arabic.html" class="lang-card">
-                <span class="arrow">←</span>
-                <div class="lang-name">Arabic</div>
-                <div class="lang-native">العربية</div>
-                <div class="lang-desc">دليل سياسات الموارد البشرية</div>
-            </a>
-            
-            <a href="hindi.html" class="lang-card">
-                <span class="arrow">→</span>
-                <div class="lang-name">Hindi</div>
-                <div class="lang-native">हिंदी</div>
-                <div class="lang-desc">एचआर नीति पुस्तिका</div>
-            </a>
-            
-            <a href="malayalam.html" class="lang-card">
-                <span class="arrow">→</span>
-                <div class="lang-name">Malayalam</div>
-                <div class="lang-native">മലയാളം</div>
-                <div class="lang-desc">എച്ച്ആർ പോളിസി മാന്വൽ</div>
-            </a>
-            
-            <a href="bengali.html" class="lang-card">
-                <span class="arrow">→</span>
-                <div class="lang-name">Bengali</div>
-                <div class="lang-native">বাংলা</div>
-                <div class="lang-desc">এইচআর পলিসি ম্যানুয়াল</div>
-            </a>
-            
-            <a href="nepali.html" class="lang-card">
-                <span class="arrow">→</span>
-                <div class="lang-name">Nepali</div>
-                <div class="lang-native">नेपाली</div>
-                <div class="lang-desc">एचआर नीति पुस्तिका</div>
-            </a>
-        </div>
-        
-        <div class="footer">
-            <p>© 2024 ARS International Co. S.P.C. All Rights Reserved.</p>
-        </div>
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
+
+    <nav class="nav">
+        <div class="logo">ARS <span>International</span></div>
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" onclick="toggleDropdown()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                Language
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </button>
+            <div class="lang-menu">
+                <a href="english.html">English <span class="native">English</span></a>
+                <a href="arabic.html">Arabic <span class="native">العربية</span></a>
+                <a href="hindi.html">Hindi <span class="native">हिंदी</span></a>
+                <a href="malayalam.html">Malayalam <span class="native">മലയാളം</span></a>
+                <a href="bengali.html">Bengali <span class="native">বাংলা</span></a>
+                <a href="nepali.html">Nepali <span class="native">नेपाली</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Official Employee Resource</div>
+            <h1>HR Policy <span>Manual</span></h1>
+            <p>Your comprehensive guide to workplace policies, employee benefits, and professional conduct at ARS International Co. S.P.C. Available in 6 languages for our diverse team.</p>
+            <div class="cta-buttons">
+                <a href="english.html" class="btn btn-primary">
+                    Read in English
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-secondary" onclick="toggleDropdown(); return false;">
+                    Choose Language
+                </a>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📋</div>
+                    <h3>79 Pages</h3>
+                    <p>Comprehensive policies</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>6 Languages</h3>
+                    <p>Multilingual support</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Ready</h3>
+                    <p>Read anywhere</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Up to Date</h3>
+                    <p>Latest policies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 ARS International Co. S.P.C. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById('langDropdown').classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('langDropdown');
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
