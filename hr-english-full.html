@@ -140,9 +140,84 @@
         
         /* Responsive */
         @media(max-width:768px){.section,.toc{padding:30px 20px}.page-header{padding:12px 16px}.download-btn{bottom:20px;right:20px;padding:12px 16px;font-size:12px}.download-btn span{display:none}.back-to-top{bottom:70px;right:20px}.sidebar{width:280px;padding:80px 20px 30px}.cover-logos{gap:20px}.cover-logo-box{padding:16px 20px}.cover-logo-box img{height:45px}}
+    
+        /* Language Selector */
+        .language-selector{position:fixed;top:20px;right:80px;z-index:1002;display:flex;flex-wrap:wrap;gap:6px;background:var(--white,#fff);padding:10px 14px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border:1px solid var(--border,#E5E0D8);max-width:420px}
+        .lang-btn{padding:6px 12px;border:none;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:all .3s;background:transparent;color:var(--text,#3D3D3D);text-decoration:none;display:inline-block}
+        .lang-btn:hover{background:var(--cream,#FAF8F5);transform:translateY(-1px)}
+        .lang-btn.active{background:linear-gradient(135deg,var(--gold,#8B7355),var(--gold-light,#A89078));color:white}
+        .feedback-box{position:fixed;bottom:90px;right:24px;z-index:1000}
+        .feedback-btn{display:flex;align-items:center;gap:8px;padding:12px 20px;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#2D2D2D;border:none;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,0.12);transition:all .3s;text-decoration:none}
+        .feedback-btn:hover{transform:translateY(-2px) scale(1.02)}
+        .feedback-btn svg{width:18px;height:18px}
+        .feedback-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;padding:20px}
+        .feedback-modal.active{display:flex}
+        .feedback-modal-content{background:var(--white,#fff);border-radius:12px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25)}
+        .feedback-modal-header{padding:20px 24px;border-bottom:1px solid var(--border,#E5E0D8);display:flex;justify-content:space-between;align-items:center}
+        .feedback-modal-header h3{font-size:18px;font-weight:700;color:var(--charcoal,#2D2D2D)}
+        .feedback-close-btn{background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-light,#6B6B6B)}
+        .feedback-modal-body{padding:24px}
+        .feedback-type-selector{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+        .feedback-type-btn{padding:10px 16px;border:2px solid var(--border,#E5E0D8);border-radius:8px;background:var(--white,#fff);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--text,#3D3D3D)}
+        .feedback-type-btn:hover{border-color:var(--gold,#8B7355)}
+        .feedback-type-btn.active{background:var(--gold,#8B7355);border-color:var(--gold,#8B7355);color:white}
+        .feedback-form-group{margin-bottom:16px}
+        .feedback-form-group label{display:block;font-weight:500;margin-bottom:6px;color:var(--charcoal,#2D2D2D)}
+        .feedback-form-group input,.feedback-form-group textarea{width:100%;padding:12px;border:1px solid var(--border,#E5E0D8);border-radius:8px;font-size:15px}
+        .feedback-form-group textarea{min-height:120px;resize:vertical}
+        .feedback-submit-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold,#8B7355),var(--gold-light,#A89078));color:white;border:none;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer}
+        .feedback-success{text-align:center;padding:40px 20px}
+        .feedback-success svg{width:60px;height:60px;color:#10b981;margin-bottom:16px}
+        .feedback-success h4{font-size:20px;margin-bottom:8px;color:var(--charcoal,#2D2D2D)}
+        @media(max-width:768px){.language-selector{top:10px;right:10px;left:10px;max-width:calc(100% - 20px);padding:8px 10px;justify-content:center}.lang-btn{padding:5px 10px;font-size:11px}.feedback-box{bottom:80px;right:16px}}
+        @media print{.language-selector,.feedback-box,.feedback-modal{display:none!important}}
+
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <a href="hr-english-full.html" class="lang-btn active">English</a>
+        <a href="hr-arabic-full.html" class="lang-btn ">العربية</a>
+        <a href="hr-hindi-full.html" class="lang-btn ">हिन्दी</a>
+        <a href="hr-bengali-full.html" class="lang-btn ">বাংলা</a>
+        <a href="hr-malayalam-full.html" class="lang-btn ">മലയാളം</a>
+        <a href="hr-nepali-full.html" class="lang-btn ">नेपाली</a>
+    </div>
+
+    <!-- Feedback Box -->
+    <div class="feedback-box">
+        <button class="feedback-btn" onclick="openFeedbackModal()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            Feedback
+        </button>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-modal-content">
+            <div class="feedback-modal-header">
+                <h3>Feedback, Complaints & Suggestions</h3>
+                <button class="feedback-close-btn" onclick="closeFeedbackModal()">&times;</button>
+            </div>
+            <div class="feedback-modal-body" id="feedbackFormContainer">
+                <div class="feedback-type-selector">
+                    <button class="feedback-type-btn active" onclick="selectFeedbackType(this,'feedback')">Feedback</button>
+                    <button class="feedback-type-btn" onclick="selectFeedbackType(this,'complaint')">Complaint</button>
+                    <button class="feedback-type-btn" onclick="selectFeedbackType(this,'suggestion')">Suggestion</button>
+                </div>
+                <form id="feedbackForm" onsubmit="submitFeedback(event)">
+                    <input type="hidden" id="feedbackType" value="feedback">
+                    <div class="feedback-form-group"><label>Your Name</label><input type="text" id="feedbackName" placeholder="Enter your name" required></div>
+                    <div class="feedback-form-group"><label>Email Address</label><input type="email" id="feedbackEmail" placeholder="Enter your email" required></div>
+                    <div class="feedback-form-group"><label>Subject</label><input type="text" id="feedbackSubject" placeholder="Brief subject" required></div>
+                    <div class="feedback-form-group"><label>Message</label><textarea id="feedbackMessage" placeholder="Please provide details..." required></textarea></div>
+                    <button type="submit" class="feedback-submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Toggle -->
     <button class="nav-toggle" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -2020,5 +2095,15 @@
             });
         });
     </script>
+
+    <script>
+    function openFeedbackModal(){document.getElementById('feedbackModal').classList.add('active');document.body.style.overflow='hidden'}
+    function closeFeedbackModal(){document.getElementById('feedbackModal').classList.remove('active');document.body.style.overflow='';document.getElementById('feedbackForm').reset();document.querySelectorAll('.feedback-type-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.feedback-type-btn').classList.add('active');document.getElementById('feedbackType').value='feedback'}
+    function selectFeedbackType(btn,type){document.querySelectorAll('.feedback-type-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('feedbackType').value=type}
+    function submitFeedback(e){e.preventDefault();var t=document.getElementById('feedbackType').value;document.getElementById('feedbackFormContainer').innerHTML='<div class="feedback-success"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><h4>Thank You!</h4><p>Your '+t+' has been submitted successfully.<br>We will review it and get back to you soon.</p></div>';setTimeout(function(){closeFeedbackModal();location.reload()},3000)}
+    document.getElementById('feedbackModal').addEventListener('click',function(e){if(e.target===this)closeFeedbackModal()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeFeedbackModal()});
+    </script>
+
 </body>
 </html>
