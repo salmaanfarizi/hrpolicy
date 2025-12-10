@@ -131,9 +131,11 @@
             text-align: center;
         }
         .languages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .lang-card {
             background: #fff;
